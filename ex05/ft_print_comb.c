@@ -12,14 +12,15 @@
 
 #include <unistd.h>
 
-void	ft_print(char i, char j, char k)
+void	ft_print_final(char i, char j, char k)
 {
 	write(1, &i, 1);
 	write(1, &j, 1);
 	write(1, &k, 1);
+	write(1, "\n", 1);
 }
 
-void	ft_print_virg(char i, char j, char k)
+void	ft_print(char i, char j, char k)
 {
 	write(1, &i, 1);
 	write(1, &j, 1);
@@ -42,16 +43,16 @@ void	ft_print_comb(void)
 		{
 			while (c < 57)
 			{
-				ft_print_virg(a, b, c);
+				ft_print(a, b, c);
 				c++;
 			}
-			ft_print_virg(a, b, c);
+			ft_print(a, b, c);
 			b++;
 			c = b + 1;
 		}
-		ft_print_virg(a, b, c);
+		ft_print(a, b, c);
 		a++;
 		b = a + 1;
 	}
-	ft_print(a, b, c);
+	ft_print_final(a, b, c);
 }
