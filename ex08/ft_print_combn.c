@@ -13,14 +13,6 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int		ft_int_to_char(int i)
-{
-	char c;
-
-	c = (char)i + 48;
-	return (c);
-}
-
 void	ft_print_tab(int tab[], int size)
 {
 	int		i;
@@ -29,26 +21,42 @@ void	ft_print_tab(int tab[], int size)
 	i = 0;
 	while (i < size)
 	{
-		c = ft_int_to_char(tab[i]);
+		c = (char)tab[i] + 48;
 		write(1, &c, 1);
 		i++;
 	}
-	write(1, ", ", 2);
+	if (tab[0] == 10 - size)
+	{
+		write(1, "\n", 1);
+	}
+	else
+	{
+		write(1, ", ", 2);
+	}
 }
 
-void	ft_print_tab_end(int tab[], int size)
+void	ft_init(int *tab, int s)
 {
-	int		i;
-	char	c;
+	int i;
 
 	i = 0;
-	while (i < size)
+	while (i < s)
 	{
-		c = ft_int_to_char(tab[i]);
-		write(1, &c, 1);
+		tab[i] = i;
 		i++;
 	}
-	write(1, "\n", 1);
+}
+
+void	ft_last_case(int *tab, int s)
+{
+	while (tab[s - 1] < 9)
+	{
+		tab[s - 1]++;
+		ft_print_tab(tab, s);
+	}
+	tab[s - 2]++;
+	tab[s - 1] = tab[s - 2] + 1;
+	ft_print_tab(tab, s);
 }
 
 int		ft_check(int t[], int nb)
@@ -68,12 +76,7 @@ void	ft_print_combn(int n)
 	int tab[n];
 	int a;
 
-	a = 0;
-	while (a < n)
-	{
-		tab[a] = a;
-		a++;
-	}
+	ft_init(tab, n);
 	a = n - 1;
 	ft_print_tab(tab, n);
 	while (tab[0] < 10 - n)
@@ -81,14 +84,7 @@ void	ft_print_combn(int n)
 		a = ft_check(tab, n);
 		if (a == n - 1)
 		{
-			while (tab[a] < 9)
-			{
-				tab[a]++;
-				ft_print_tab(tab, n);
-			}
-			tab[a - 1]++;
-			tab[a] = tab[a - 1] + 1;
-			ft_print_tab(tab, n);
+			ft_last_case(tab, n);
 			a = ft_check(tab, n);
 		}
 		else
@@ -102,5 +98,4 @@ void	ft_print_combn(int n)
 			ft_print_tab(tab, n);
 		}
 	}
-	ft_print_tab_end(tab, n);
 }
