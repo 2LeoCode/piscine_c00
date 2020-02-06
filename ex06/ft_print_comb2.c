@@ -37,8 +37,11 @@ void	ft_print(int i, int j)
 	write(1, &tab_num, 2);
 	write(1, " ", 1);
 	write(1, &tab_num[2], 2);
-	if(!(tab_num[0] == '9' && tab_num[1] == '8' && tab_num[2] == '9' && tab_num[3] == '9'))
-		write(1, ", ", 2);
+	if (!(tab_num[0] == '9'))
+		if (!(tab_num[1] == '8'))
+			if (!(tab_num[2] == '9'))
+				if (!(tab_num[3] == '9'))
+					write(1, ", ", 2);
 }
 
 void	ft_print_comb2(void)
