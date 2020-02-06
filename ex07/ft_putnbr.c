@@ -31,6 +31,11 @@ void	ft_putnbr(int nb)
 	int		index;
 	char	tab_ch[10];
 
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb *= -1;
+	}
 	cpt = ft_nbchiffres(nb);
 	index = 1;
 	while (cpt > 1)
