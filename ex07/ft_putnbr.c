@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-int	ft_nbchiffres(int i)
+int		ft_nbchiffres(int i)
 {
 	int n;
 
@@ -22,14 +22,14 @@ int	ft_nbchiffres(int i)
 		i /= 10;
 		n++;
 	}
-	return(n);
+	return (n);
 }
 
 void	ft_putnbr(int nb)
 {
-	int cpt;
-	int index;
-	char tab_ch[10];
+	int		cpt;
+	int		index;
+	char	tab_ch[10];
 
 	cpt = ft_nbchiffres(nb);
 	index = 1;
