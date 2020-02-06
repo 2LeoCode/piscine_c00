@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_print_tab(int tab[], int size)
 {
@@ -25,14 +24,8 @@ void	ft_print_tab(int tab[], int size)
 		write(1, &c, 1);
 		i++;
 	}
-	if (tab[0] == 10 - size)
-	{
-		write(1, "\n", 1);
-	}
-	else
-	{
+	if (tab[0] < 10 - size)
 		write(1, ", ", 2);
-	}
 }
 
 void	ft_init(int *tab, int s)

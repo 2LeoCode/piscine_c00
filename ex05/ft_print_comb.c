@@ -12,20 +12,13 @@
 
 #include <unistd.h>
 
-void	ft_print_final(char i, char j, char k)
-{
-	write(1, &i, 1);
-	write(1, &j, 1);
-	write(1, &k, 1);
-	write(1, "\n", 1);
-}
-
 void	ft_print(char i, char j, char k)
 {
 	write(1, &i, 1);
 	write(1, &j, 1);
 	write(1, &k, 1);
-	write(1, ", ", 2);
+	if (!(i == '7' && j == '8' && k == '9'))
+		write(1, ", ", 2);
 }
 
 void	ft_print_comb(void)
@@ -54,5 +47,5 @@ void	ft_print_comb(void)
 		a++;
 		b = a + 1;
 	}
-	ft_print_final(a, b, c);
+	ft_print(a, b, c);
 }
