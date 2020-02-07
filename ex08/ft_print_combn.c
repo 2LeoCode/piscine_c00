@@ -66,27 +66,26 @@ int		ft_check(int t[], int nb)
 
 void	ft_print_combn(int n)
 {
-	int tab[n];
-	int a;
+	int tab[100];
 
 	ft_init(tab, n);
-	a = n - 1;
+	tab[n] = n - 1;
 	ft_print_tab(tab, n);
 	while (tab[0] < 10 - n)
 	{
-		a = ft_check(tab, n);
-		if (a == n - 1)
+		tab[n] = ft_check(tab, n);
+		if (tab[n] == n - 1)
 		{
 			ft_last_case(tab, n);
-			a = ft_check(tab, n);
+			tab[n] = ft_check(tab, n);
 		}
 		else
 		{
-			tab[a]++;
-			while (a < n)
+			tab[tab[n]]++;
+			while (tab[n] < n)
 			{
-				a++;
-				tab[a] = tab[a - 1] + 1;
+				tab[n]++;
+				tab[tab[n]] = tab[tab[n] - 1] + 1;
 			}
 			ft_print_tab(tab, n);
 		}

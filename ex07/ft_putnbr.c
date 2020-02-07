@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 int		ft_nbchiffres(int i)
 {
@@ -26,9 +25,12 @@ int		ft_nbchiffres(int i)
 	return (n);
 }
 
-int		ft_is_negative(int i){
+int		ft_is_negative(int i)
+{
 	int j;
-	if (i < 0){
+
+	if (i < 0)
+	{
 		j = -1;
 	}
 	else
