@@ -14,10 +14,15 @@
 
 void	ft_print(char i, char j, char k)
 {
+	unsigned char s;
+
+	s = 0;
 	write(1, &i, 1);
 	write(1, &j, 1);
 	write(1, &k, 1);
-	if (!(i == '7' && j == '8' && k == '9'))
+	if (i == '7' && j == '8' && k == '9')
+		s = 1;
+	if (!s)
 		write(1, ", ", 2);
 }
 
@@ -46,6 +51,12 @@ void	ft_print_comb(void)
 		ft_print(a, b, c);
 		a++;
 		b = a + 1;
+		c = b + 1;
 	}
 	ft_print(a, b, c);
+}
+
+int main(){
+	ft_print_comb();
+	return 0;
 }

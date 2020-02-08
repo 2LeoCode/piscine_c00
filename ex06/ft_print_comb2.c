@@ -44,9 +44,8 @@ void	ft_print(int i, int j)
 			if (tab_num[2] == '9')
 				if (tab_num[3] == '9')
 					s = 1;
-	if (s != 1) {
+	if (s != 1)
 		write(1, ", ", 2);
-	}
 }
 
 void	ft_print_comb2(void)
@@ -68,9 +67,4 @@ void	ft_print_comb2(void)
 		b = a + 1;
 	}
 	ft_print(a, b);
-}
-
-int main(){
-	 ft_print_comb2();
-	 return 0;
 }
