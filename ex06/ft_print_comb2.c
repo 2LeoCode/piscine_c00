@@ -29,7 +29,9 @@ void	ft_print_final(int i, int j)
 void	ft_print(int i, int j)
 {
 	char tab_num[4];
+	unsigned char s;
 
+	s = 0;
 	tab_num[0] = (char)(i / 10) + 48;
 	tab_num[1] = (char)(i % 10) + 48;
 	tab_num[2] = (char)(j / 10) + 48;
@@ -37,11 +39,14 @@ void	ft_print(int i, int j)
 	write(1, &tab_num, 2);
 	write(1, " ", 1);
 	write(1, &tab_num[2], 2);
-	if (!(tab_num[0] == '9'))
-		if (!(tab_num[1] == '8'))
-			if (!(tab_num[2] == '9'))
-				if (!(tab_num[3] == '9'))
-					write(1, ", ", 2);
+	if (tab_num[0] == '9')
+		if (tab_num[1] == '8')
+			if (tab_num[2] == '9')
+				if (tab_num[3] == '9')
+					s = 1;
+	if (s != 1) {
+		write(1, ", ", 2);
+	}
 }
 
 void	ft_print_comb2(void)
@@ -63,4 +68,9 @@ void	ft_print_comb2(void)
 		b = a + 1;
 	}
 	ft_print(a, b);
+}
+
+int main(){
+	 ft_print_comb2();
+	 return 0;
 }
