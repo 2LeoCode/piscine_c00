@@ -28,7 +28,7 @@ void	ft_print_tab(int tab[], int size)
 		write(1, ", ", 2);
 }
 
-void	ft_init(int *tab, int s)
+char	*ft_init(int *tab, int s)
 {
 	int i;
 
@@ -38,9 +38,10 @@ void	ft_init(int *tab, int s)
 		tab[i] = i;
 		i++;
 	}
+	return (tab);
 }
 
-void	ft_last_case(int *tab, int s)
+char	*ft_last_case(int *tab, int s)
 {
 	while (tab[s - 1] < 9)
 	{
@@ -50,6 +51,7 @@ void	ft_last_case(int *tab, int s)
 	tab[s - 2]++;
 	tab[s - 1] = tab[s - 2] + 1;
 	ft_print_tab(tab, s);
+	return (tab);
 }
 
 int		ft_check(int t[], int nb)
