@@ -14,8 +14,8 @@
 
 void	ft_print(int i, int j)
 {
-	char tab_num[4];
-	unsigned char s;
+	char			tab_num[4];
+	unsigned char	s;
 
 	s = 0;
 	tab_num[0] = (char)(i / 10) + 48;

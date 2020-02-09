@@ -26,6 +26,13 @@ void	ft_print(char i, char j, char k)
 		write(1, ", ", 2);
 }
 
+void	ft_increm_abc(char *i, char *j, char *k)
+{
+	*i = *i + 1;
+	*j = *i + 1;
+	*k = *j + 1;
+}
+
 void	ft_print_comb(void)
 {
 	char a;
@@ -49,14 +56,7 @@ void	ft_print_comb(void)
 			c = b + 1;
 		}
 		ft_print(a, b, c);
-		a++;
-		b = a + 1;
-		c = b + 1;
+		ft_increm_abc(&a, &b, &c);
 	}
 	ft_print(a, b, c);
-}
-
-int main(){
-	ft_print_comb();
-	return 0;
 }
