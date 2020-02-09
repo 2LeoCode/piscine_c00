@@ -6,9 +6,9 @@
 /*   By: lsuardi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 17:32:19 by lsuardi           #+#    #+#             */
-/*   Updated: 2020/02/09 11:26:54 by lsuardi          ###   ########.fr       */
+/*   Updated: 2020/02/09 18:35:33 by lsuardi          ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/* ************************************************************************* */
 
 #include <unistd.h>
 
@@ -28,7 +28,7 @@ void	ft_print_tab(int tab[], int size)
 		write(1, ", ", 2);
 }
 
-char	*ft_init(int *tab, int s)
+int		*ft_init(int *tab, int s)
 {
 	int i;
 
@@ -41,7 +41,7 @@ char	*ft_init(int *tab, int s)
 	return (tab);
 }
 
-char	*ft_last_case(int *tab, int s)
+int		*ft_last_case(int *tab, int s)
 {
 	while (tab[s - 1] < 9)
 	{
@@ -92,4 +92,11 @@ void	ft_print_combn(int n)
 			ft_print_tab(tab, n);
 		}
 	}
+}
+
+int main ()
+
+{
+	ft_print_combn(5);
+	return 0;
 }
